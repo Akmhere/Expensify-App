@@ -1,5 +1,6 @@
 import firebase from "firebase/app";
 import "firebase/database";
+import "firebase/auth";
 const firebaseConfig = {
     apiKey: "AIzaSyDE69hukRJnSThRqD_GNaBw5I4GuDX02Po",
     authDomain: "expensify-akm.firebaseapp.com",
@@ -13,8 +14,8 @@ const firebaseConfig = {
 
   firebase.initializeApp(firebaseConfig);
   const database = firebase.database();
-
-export {firebase , database as default};
+  const googleAuthProvider = new firebase.auth.GoogleAuthProvider();
+export {firebase ,googleAuthProvider, database as default};
 
 //  database.ref('notes').on('value',(snapshot)=>{
 //     const expenses = [];
